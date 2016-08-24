@@ -1,4 +1,4 @@
-# docker-apache2-php7
+# docker-apache2-php7-dev
 
 Dockerfile to build a debian Apache 2.4 - PHP 7 container image.
 
