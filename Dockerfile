@@ -61,7 +61,4 @@ RUN echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list.d/
 RUN sed -i -e 's/^error_reporting\s*=.*/error_reporting = E_ALL/' /etc/php/7.0/apache2/php.ini
 RUN sed -i -e 's/^display_errors\s*=.*/display_errors = On/' /etc/php/7.0/apache2/php.ini
 
-# clean
-RUN apt-get clean && \
-RUN apt-get purge
 CMD ["/usr/sbin/apache2ctl","-DFOREGROUND"]
