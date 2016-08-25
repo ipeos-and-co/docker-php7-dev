@@ -7,7 +7,7 @@ This environment is intended to be used in web development courses. It activates
 
 ## Installation
 
-Automated builds of the image are available on Dockerhub and is the recommanded method of installation.
+Automated builds of the image are available on (Dockerhub)[https://hub.docker.com/r/ipeos/php7-dev/] and is the recommanded method of installation.
 
 ```bash
 $ docker pull ipeos-and-co/php7-dev
