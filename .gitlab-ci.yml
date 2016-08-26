@@ -1,0 +1,7 @@
+stages:
+  - deploy
+
+Git MIRROR:
+  stage: deploy
+  script:
+    - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$GITHUB_REPO
