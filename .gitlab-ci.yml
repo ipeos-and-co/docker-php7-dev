@@ -4,4 +4,5 @@ stages:
 Mirror on Github:
   stage: deploy
   script:
+    - set -e
     - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$GITHUB_REPO
