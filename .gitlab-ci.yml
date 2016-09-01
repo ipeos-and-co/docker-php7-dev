@@ -6,5 +6,6 @@ Mirror on Github:
   script:
     - set -e
     - echo 'test'
-    - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$GITHUB_REPO
     - git checkout master
+    - git pull master
+    - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$GITHUB_REPO
