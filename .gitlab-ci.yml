@@ -7,5 +7,5 @@ Mirror on Github:
     - set -e
     - echo 'test'
     - git checkout master
-    - git pull master
+    - git pull
     - git push --mirror https://$GITHUB_USER:$GITHUB_PASSWORD@github.com/$GITHUB_REPO
