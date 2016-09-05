@@ -1,0 +1,38 @@
+version: '2'
+services:
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    container_name: my-wonderful-project_mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=hello-world
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=database
+    volumes:
+      - /home/user/src/web/project/mysql_data:/var/lib/mysql
+
+  apache2php7:
+    image: ipeos/php7-dev:latest
+    restart: always
+    container_name: my-wonderful-project_apache2php7
+    ports:
+      - 8888:80
+    volumes:
+      - /home/user/src/web/project/html:/var/www/html
+    restart: always
+    links:
+      - mariadb
+
+  phpmyadmin:
+    image: corbinu/docker-phpmyadmin:latest
+    restart: always
+    container_name: my-wonderful-project_pma
+    links:
+      - mariadb:mysql
+    ports:
+      - 9999:80
+    environment:
+      - MYSQL_ROOT_PASSWORD=hello-world
+      - MYSQL_USERNAME=user
+      - MYSQL_PASSWORD=password

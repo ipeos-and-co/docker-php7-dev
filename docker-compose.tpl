@@ -2,8 +2,8 @@ version: '2'
 services:
   mariadb:
     image: mariadb:latest
-    container_name: mariadb
     restart: always
+    container_name: ${PROJECT_NAME}_mariadb
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_USER=${MYSQL_USER}
@@ -15,8 +15,9 @@ services:
   apache2php7:
     image: ipeos/php7-dev:latest
     restart: always
+    container_name: ${PROJECT_NAME}_apache2php7
     ports:
-      - ${APACHE_PORT}:80
+      - 8888:80
     volumes:
       - ${APACHE_VOLUME}:/var/www/html
     restart: always
@@ -26,6 +27,7 @@ services:
   phpmyadmin:
     image: corbinu/docker-phpmyadmin:latest
     restart: always
+    container_name: ${PROJECT_NAME}_pma
     links:
       - mariadb:mysql
     ports:
