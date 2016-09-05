@@ -1,35 +1,36 @@
 version: '2'
 services:
   mariadb:
-    restart: always
-    container_name: mariadb
     image: mariadb:latest
+    container_name: mariadb
+    restart: always
     environment:
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=database
-      - MYSQL_ROOT_PASSWORD=hello-world
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
     volumes:
-      - /home/user/var/lib/mysql/project:/var/lib/mysql
+      - ${MYSQL_VOLUME}:/var/lib/mysql
 
   apache2php7:
-    image: ipeos/php7-dev
+    image: ipeos/php7-dev:latest
+    restart: always
     ports:
-      - 8888:80
+      - ${APACHE_PORT}:80
     volumes:
-      - /home/user/public_html/project:/var/www/html
+      - ${APACHE_VOLUME}:/var/www/html
     restart: always
     links:
       - mariadb
 
   phpmyadmin:
-    restart: always
     image: corbinu/docker-phpmyadmin:latest
+    restart: always
     links:
       - mariadb:mysql
     ports:
       - 9999:80
     environment:
-      - MYSQL_USERNAME=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=hello-world
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USERNAME=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
