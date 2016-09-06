@@ -47,19 +47,24 @@ Now that the Apache/PHP7 server’s running, visit http://127.0.0.1:8888/ with y
 - `PHPMYADMIN_PORT`  - This variable is mandatory and specifies wich port to expose on the local machine to access to phpMyAdmin via HTTP.
 
 ### Run
-In order to (re)start the environment, use the [`run.sh`](run.sh) script.
+In order to (re)start the environment, use the [`run.sh`](run.sh) script. 
 ```bash
-$ run.sh
+$ ./run.sh
 ```
 The environment is started as daemon. So it will be restarted on the workstation reboot.
 
 ### Stop
 In order to stop the environment, use the [`stop.sh`](stop.sh) script.
 ```bash
-$ stop.sh
+$ ./stop.sh
 ```
+
 All containers will be removed and recreated on then next run.
 
+
+#### Executable script
+
+The first time, give the exec right with `chmod +x *.sh`
 
 ## Contributing
 
