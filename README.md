@@ -23,11 +23,11 @@ Now that the Apache/PHP7 server’s running, visit http://127.0.0.1:8888/ with y
 
 The site's PHP and static files are directly accessible in the local volume you mounted as `/var/www/html` in the php7 container.
 
-##Run PHP Website With MariaDB And phpMyAdmin
+## Run PHP Website With MariaDB And phpMyAdmin
 
 The quickest way to get started is using  [docker-compose](https://docs.docker.com/compose/).
 
-###Environment variables in Compose
+### Environment variables in Compose
 
 You can create a custom ```docker-compose.yml``` file for your project, by setting environment variables and running the script ```run.sh```:
 
